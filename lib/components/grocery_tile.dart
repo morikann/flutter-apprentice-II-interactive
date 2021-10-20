@@ -24,9 +24,48 @@ class GroceryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO 21: Change this Widget
     return Container(
-      height: 100.0,
-      // TODO 20: Replace this color
-      color: Colors.red,
+      height: 100,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(width: 5.0, color: item.color),
+              const SizedBox(width: 16.0),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 5
+                  Text(
+                    item.name,
+                    style: GoogleFonts.lato(
+                        decoration: textDecoration,
+                        fontSize: 21.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 4.0),
+                  buildDate(),
+                  const SizedBox(height: 4.0),
+                  buildImportance(),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              // 7
+              Text(
+                item.quantity.toString(),
+                style: GoogleFonts.lato(
+                    decoration: textDecoration, fontSize: 21.0),
+              ),
+              // 8
+              buildCheckbox(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
